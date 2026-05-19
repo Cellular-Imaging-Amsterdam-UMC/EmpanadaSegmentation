@@ -1,0 +1,15 @@
+services:
+  empanada:
+    build: https://github.com/NL-BioImaging/fair-segmentation.git#main
+    ports:
+    - 9876:9876
+
+  main:
+    build:
+      context: .
+      additional_contexts:
+        empanada-napari-xpra: service:empanada
+    depends_on:
+    - empanada
+    ports:
+    - 9876:9876

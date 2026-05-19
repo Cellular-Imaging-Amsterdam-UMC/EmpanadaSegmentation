@@ -1,12 +1,22 @@
 services:
   empanada:
-    build: https://github.com/NL-BioImaging/fair-segmentation.git#main
+ #   build: https://github.com/NL-BioImaging/fair-segmentation.git#main   # Does not seem to work on Windows
+    build:
+      context: fair-segmentation
     ports:
     - 9876:9876
 
-  main:
-    build: .
-    ports:
-    - 9876:9876
+  biomero:
+    build:
+      context: .
+      additional_contexts:
+        empanada-napari-xpra: service:empanada
     depends_on:
     - empanada
+    ports:
+    - 9876:9876
+
+
+# build: docker compose -f .\docker-compose.yml build
+
+# run: docker compose -f .\docker-compose.yml up

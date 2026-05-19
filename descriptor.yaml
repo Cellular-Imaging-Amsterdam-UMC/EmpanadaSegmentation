@@ -48,18 +48,6 @@ inputs:
     timepoints: True
     tiled: True
     pyramidal: True
-  - name: custom_model
-    type: file
-    label: "Add Model"
-    description: "Custom model to be used for segmentation, if not using pretrained model"
-    cli_tag: "--add_model"
-    cli_order: 0
-    default: "single"
-    optional: True
-    folder_name: "/models"
-    file_count: "single"
-    section_id: "inputs"
-    mode: "advanced"
 
 outputs:
   - name: segmented_labels
@@ -82,29 +70,6 @@ outputs:
     timepoints: True
     tiled: True
     pyramidal: True
-    
-parameters:
-  # Output Arguments
-  - name: save_omezarr
-    type: checkbox
-    label: "Save Ome-zarr"
-    description: "save segmentation as Ome-zarr"
-    append_value: False 
-    default: False
-    cli_tag: "--save_omezarr"
-    optional: True
-    section_id: "output-args"
-    mode: "beginner"
-  - name: save_dir
-    type: textbox
-    label: "Save Directory"
-    description: "directory to save output files"
-    output_dir_set: True
-    default: "/output_images"
-    cli_tag: "--savedir"
-    optional: True
-    section_id: "output-args"
-    mode: "advanced"
 
 # Display_only Section
 display_only:

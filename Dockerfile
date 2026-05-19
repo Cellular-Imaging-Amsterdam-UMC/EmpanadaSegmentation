@@ -1,5 +1,6 @@
 # Base image with Python 3.12
-FROM python:3.12-slim
+#FROM python:3.12-slim
+FROM empanada-napari-xpra AS biomero-mito-segmentation
 
 # Set working directory
 WORKDIR /app
@@ -11,6 +12,8 @@ COPY *.py .
 ENTRYPOINT ["python", "/app/main.py"]
 
 
-# docker build -t biomero-mito-segmentation .
+# Docker compose build:
+# docker compose -f .\docker-compose.yml build
 
-# docker run --rm -v "C:\Project\slides\DB:/data" biomero-mito-segmentation --inputfile "/data/TestRon.ome.zarr" --outputfolder "/data/output" --show_progress
+# Run:
+# docker run --rm -v "C:\Project\slides\DB:/data" w_mitosegmentation-biomero --inputfile "/data/TestRon.ome.zarr" --outputfolder "/data/output" --show_progress

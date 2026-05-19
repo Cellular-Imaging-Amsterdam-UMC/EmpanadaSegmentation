@@ -1,0 +1,15 @@
+services:
+  test1:
+    image: test_1
+    build:
+      context: ..
+      dockerfile: Dockerfile-test1
+
+  test2:
+    build:
+      context: ..
+      dockerfile: Dockerfile-test2
+      additional_contexts:
+        test_1: service:test1
+    depends_on:
+    - test1
