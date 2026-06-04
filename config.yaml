@@ -7,21 +7,23 @@ citations:
 
 docker_image:
   org: cellularimagingcf
-  name: w_mitosegmentation
-  #tag: "v0.0.3"
+  name: empanadasegmentation
+  tag: "latest"
   platform: "linux/amd64"
 
-algorithm_folder_name: "W_MitoSegmentation"
+algorithm_folder_name: "empanadasegmentation"
 
 exec_function: 
   name: "generate_cli_command"
-  cli_command: "napari"
-  hidden_args: 
-    # dummy example
-    # - cli_tag: "--save_omezarr"
-    #   value: "True"
-    #   append_value: False
-    #   cli_order: 3
+  cli_command: "python wrapper.py"
+  hidden_args:
+    - cli_tag: "--gtfolder"
+      value: "/data/gt"
+      cli_order: 3
+    - cli_tag: "--local"
+      value: "True"
+      append_value: false
+      cli_order: 4
 
 inputs:
   - name: input_images
