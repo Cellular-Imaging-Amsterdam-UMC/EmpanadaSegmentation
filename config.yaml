@@ -1,6 +1,6 @@
 # Based on example https://github.com/bilayer-containers/bilayers/blob/main/algorithms/cellpose_inference/config.yaml
 citations:
-  - name: "Empanada Mitonet"
+  - name: "Empanada Segmentation"
     doi: 10.1016/j.cels.2022.12.006
     license: "BSD 3-Clause"
     description: "Panoptic segmentation algorithms for 2D and 3D electron microscopy in napari"
